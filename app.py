@@ -33,6 +33,7 @@ class ejemplo_GUI(QMainWindow):
         self.comboBoxColumnas.setEditable(True)
         self.comboBoxColumnas.lineEdit().setReadOnly(True)
         #self.procesarArchivo.clicked.connect(self.Ttest_1samp)
+        self.generarPairedTestBtn.clicked.connect(self.fn_generarPairedTTest)
 
     def fn_cargarArchivo(self):
         fname = QFileDialog.getOpenFileName(self, 'Open file', 'C:',
