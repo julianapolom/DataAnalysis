@@ -1,1 +1,2 @@
 pyinstaller --clean --onefile --windowed app.py
+python -m pip install pyinstaller 

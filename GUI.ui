@@ -6,8 +6,8 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>636</width>
-    <height>588</height>
+    <width>703</width>
+    <height>744</height>
    </rect>
   </property>
   <property name="windowTitle">
@@ -17,8 +17,8 @@
    <widget class="QPushButton" name="cerrarAplicativo">
     <property name="geometry">
      <rect>
-      <x>480</x>
-      <y>520</y>
+      <x>470</x>
+      <y>640</y>
       <width>141</width>
       <height>23</height>
      </rect>
@@ -90,7 +90,7 @@
     <property name="geometry">
      <rect>
       <x>40</x>
-      <y>220</y>
+      <y>400</y>
       <width>541</width>
       <height>231</height>
      </rect>
@@ -121,6 +121,75 @@
       </rect>
      </property>
     </widget>
+    <widget class="QGroupBox" name="groupBox_3">
+     <property name="geometry">
+      <rect>
+       <x>0</x>
+       <y>0</y>
+       <width>541</width>
+       <height>231</height>
+      </rect>
+     </property>
+     <property name="title">
+      <string>2. Procesar correlación</string>
+     </property>
+     <widget class="QPushButton" name="procesarArchivo_2">
+      <property name="geometry">
+       <rect>
+        <x>270</x>
+        <y>20</y>
+        <width>241</width>
+        <height>23</height>
+       </rect>
+      </property>
+      <property name="text">
+       <string>Procesar archivo ...</string>
+      </property>
+     </widget>
+     <widget class="QTextEdit" name="resultadoCorrelacion_2">
+      <property name="geometry">
+       <rect>
+        <x>20</x>
+        <y>70</y>
+        <width>501</width>
+        <height>151</height>
+       </rect>
+      </property>
+     </widget>
+    </widget>
+   </widget>
+   <widget class="QGroupBox" name="groupBox_4">
+    <property name="geometry">
+     <rect>
+      <x>40</x>
+      <y>220</y>
+      <width>541</width>
+      <height>161</height>
+     </rect>
+    </property>
+    <property name="title">
+     <string>2. Seleccione las columnas a analizar</string>
+    </property>
+    <widget class="QComboBox" name="comboBoxColumnas">
+     <property name="geometry">
+      <rect>
+       <x>110</x>
+       <y>40</y>
+       <width>311</width>
+       <height>31</height>
+      </rect>
+     </property>
+    </widget>
+    <widget class="QTextEdit" name="textEditColumnas">
+     <property name="geometry">
+      <rect>
+       <x>110</x>
+       <y>90</y>
+       <width>311</width>
+       <height>31</height>
+      </rect>
+     </property>
+    </widget>
    </widget>
   </widget>
   <widget class="QMenuBar" name="menubar">
@@ -128,8 +197,8 @@
     <rect>
      <x>0</x>
      <y>0</y>
-     <width>636</width>
-     <height>21</height>
+     <width>703</width>
+     <height>26</height>
     </rect>
    </property>
   </widget>

@@ -22,7 +22,6 @@ from pip._internal.utils.misc import tabulate
 from scipy import stats
 from tabulate import tabulate
 
-
 class ejemplo_GUI(QMainWindow):
 
     def __init__(self):
@@ -31,8 +30,9 @@ class ejemplo_GUI(QMainWindow):
         self.cargarArchivo.clicked.connect(self.fn_cargarArchivo)
         self.cerrarAplicativo.clicked.connect(self.fn_closeEvent)
         self.procesarArchivo.clicked.connect(self.fn_procesarArchivo)
+        self.comboBoxColumnas.setEditable(True)
+        self.comboBoxColumnas.lineEdit().setReadOnly(True)
         #self.procesarArchivo.clicked.connect(self.Ttest_1samp)
-
 
     def fn_cargarArchivo(self):
         fname = QFileDialog.getOpenFileName(self, 'Open file', 'C:',
@@ -45,6 +45,15 @@ class ejemplo_GUI(QMainWindow):
         global  preprocessed_data
         preprocessed_data = dataInFile.copy()
         print(preprocessed_data);
+
+        columnas = dataInFile.columns();
+        datalist = None;
+        for i, text in enumerate(columnas):
+            try:
+                data = datalist[i]
+            except (TypeError, IndexError):
+                data = None
+            self.comboBoxColumnas.addItem(text, data)
 
     def fn_procesarArchivo(self):
         def compute_correlations(data, col):
@@ -113,6 +122,17 @@ class ejemplo_GUI(QMainWindow):
         test_result_unbiased = stats.ttest_1samp(sample_unbiased, population_mean)
         print(f"Unbiased test statistic: {test_result_unbiased[0]:.03f}, p-value: {test_result_unbiased[1]:.03f}")
 
+    def fn_generarPairedTTest(self, event):
+        columnas = self.textEditColumnas.toPlainText()
+        arrayColumnas = columnas.split(",")
+
+        res = []
+        for i in range(self.comboBoxColumnas.model().rowCount()):
+            if self.model().item(i).checkState() == Qt.Checked:
+                res.append(self.model().item(i).data())
+
+        resultado = stats.ttest_ind(res[0], res[1], equal_var=True)
+        self.resultadoCorrelacion.setText('Resultado Paired T-Test:' + str(resultado))
     def fn_closeEvent(self, event):
         """Generate 'question' dialog on clicking 'X' button in title bar.
 
